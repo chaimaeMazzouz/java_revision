@@ -12,6 +12,7 @@ class Bicycle  {
     {
         System.out.println("cadence:" + cadence + " vitesse:" + vitesse + " engrenage:" + engrenage);
     }
+
 }
 interface Animal {
     public void animalSound(); // interface method (does not have a body)
@@ -27,6 +28,11 @@ class Pig implements Animal {
         System.out.println("Zzz");
     }
 }
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
+}
 class VTT extends Bicycle {
     public static void main(String[] args) {
 
@@ -34,11 +40,31 @@ class VTT extends Bicycle {
         System.out.println("brand:" + bike1.brand);
     }
 }
+abstract class Animaux {
+    // Abstract method (does not have a body)
+    public abstract void animalSound();
+    // Regular method
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+class Cat extends Animaux {
+    public void animalSound() {
+        // The body of animalSound() is provided here
+        System.out.println("The Cat says: meow meow");
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
 	// write your code here
         // Creer deux objets Bicycle
+        Cat ct =new Cat();
+        ct.animalSound();
+        ct.sleep();
+        for (Level myVar : Level.values()) {
+            System.out.println(myVar);
+        }
         Pig p =new Pig();
         p.animalSound();
         p.sleep();
